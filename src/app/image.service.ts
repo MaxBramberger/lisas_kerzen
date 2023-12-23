@@ -12,6 +12,6 @@ export class ImageService {
   constructor(private http: HttpClient) {}
 
   getImagePaths(): Observable<string[]> {
-    return this.http.get<string[]>('http://localhost:3000/files')
+    return this.http.get<string[]>('files')
   }
 }
