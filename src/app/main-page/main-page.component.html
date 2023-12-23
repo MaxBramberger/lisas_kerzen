@@ -1,1 +1,4 @@
-<app-image-container *ngFor="let path of imageList" [path_to_image]="getPathToImage(path)"></app-image-container>
+<h1 class="page-title">{{title}}</h1>
+<div class="image-viewport">
+    <app-image-container class="image-container" *ngFor="let path of imageList" [path_to_image]="getPathToImage(path)"></app-image-container>
+</div>

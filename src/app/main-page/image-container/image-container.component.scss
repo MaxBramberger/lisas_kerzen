@@ -1,0 +1,12 @@
+:host{
+    .image-card{
+  /* Set the height you desire */
+  height: 300px; /* Adjust as needed */
+  width: auto; /* Or set a specific width if necessary */
+  position: relative;
+  overflow: hidden;
+    }
+    .image-actual{
+        height: inherit
+    }
+}

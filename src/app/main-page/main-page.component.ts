@@ -9,6 +9,7 @@ import { ImageService } from '../image.service';
 export class MainPageComponent implements OnInit {
   constructor(private imageService: ImageService){}
   imageList: string[] = []
+  title = 'Lisas Kerzen'
 
   ngOnInit(): void {
     this.imageService.getImagePaths().subscribe(resp => {
