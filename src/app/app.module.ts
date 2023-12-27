@@ -8,15 +8,20 @@ import { ImageContainerComponent } from './main-page/image-container/image-conta
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
+import { ImagePopUpComponent } from './main-page/image-container/image-pop-up/image-pop-up.component';
+import { FormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
-  declarations: [AppComponent, MainPageComponent, ImageContainerComponent],
+  declarations: [AppComponent, MainPageComponent, ImageContainerComponent, ImagePopUpComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MatCardModule,
+    FormsModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

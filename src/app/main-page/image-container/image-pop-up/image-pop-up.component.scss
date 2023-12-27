@@ -1,0 +1,18 @@
+:host{
+.pop-up-container{
+    max-width: 100vh; /* Set a maximum width for the container */
+    max-height: 100vh; /* Set a maximum height for the container */
+    overflow: hidden; /* Hide any overflowing content */
+    position: relative;
+    .image-in-pop-up{
+        width: 100%; /* Make the image fill the width of the container */
+        height: auto; /* Maintain the image's aspect ratio */
+        max-height: inherit;
+        display: block; /* Ensure the image behaves as a block element */
+        position: relative; /* Position the image absolutely within the container */
+        left: 50%; /* Position the image at the horizontal center */
+        transform: translate(-50%, 0%);
+        object-fit: cover;
+    }
+}
+}
