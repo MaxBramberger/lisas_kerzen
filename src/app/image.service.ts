@@ -3,15 +3,14 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ImageService {
-
-  pathsObservable: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([])
+  pathsObservable: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
 
   constructor(private http: HttpClient) {}
 
   getImagePaths(): Observable<string[]> {
-    return this.http.get<string[]>('files')
+    return this.http.get<string[]>('files');
   }
 }

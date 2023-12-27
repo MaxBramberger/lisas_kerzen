@@ -7,22 +7,18 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { ImageContainerComponent } from './main-page/image-container/image-container.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatCardModule} from '@angular/material/card'
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    MainPageComponent,
-    ImageContainerComponent
-  ],
+  declarations: [AppComponent, MainPageComponent, ImageContainerComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatCardModule
+    MatCardModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
