@@ -9,15 +9,17 @@ import { ImageService } from '../image.service';
 export class MainPageComponent implements OnInit {
   constructor(private imageService: ImageService) {}
   imageList: string[] = [];
+  categories: string[] = [];
   title = 'Lisas Kerzen';
 
   ngOnInit(): void {
-    this.imageService.getImagePaths().subscribe((resp) => {
-      this.imageList = resp;
+    this.imageService.getCategories().subscribe((resp) => {
+      this.categories = resp;
+      this.categories.forEach(category =>{
+        this.imageService.getImagePaths(category).subscribe(resp=>{
+          this.imageList.push(...resp)
+        })
+      })
     });
-  }
-
-  getPathToImage(imageName: string) {
-    return 'assets/img/' + imageName;
   }
 }
