@@ -7,7 +7,7 @@ const app = express();
 // Serve static files from the Angular app
 app.use(express.static(path.join(__dirname, 'dist')));
 
-app.get('/files', (req, res) => {
+app.get('/categories', (req, res) => {
   const directoryPath = path.join(__dirname, 'dist/assets/img'); // Adjust the path accordingly
   fs.readdir(directoryPath, (err, files) => {
     if (err) {
