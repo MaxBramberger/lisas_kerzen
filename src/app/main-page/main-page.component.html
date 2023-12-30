@@ -1,4 +1,7 @@
 <h1 class="page-title">{{title}}</h1>
-<div class="image-viewport">
-    <app-image-container class="image-container" *ngFor="let path of imageList" [path_to_image]="path"></app-image-container>
+<div *ngFor="let category of categories" >
+    <h2 class="page-title">{{getCategoryDisplayName(category)}}</h2>
+    <div class="image-viewport">
+        <app-image-container class="image-container" *ngFor="let path of imageListByCategory[category]" [path_to_image]="path"></app-image-container>
+    </div>
 </div>
