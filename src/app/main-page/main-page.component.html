@@ -1,7 +1,16 @@
 <h1 class="page-title">{{title}}</h1>
 <div *ngFor="let category of categories" >
-    <h2 class="page-title">{{getCategoryDisplayName(category)}}</h2>
-    <div class="image-viewport">
+    <h2 class="page-title"> <button mat-icon-button (click)="onButtonClick(category)">
+        <div *ngIf="!getCategoryStatus(category)">
+            <mat-icon>add</mat-icon>
+        </div>
+        <div *ngIf="getCategoryStatus(category)">
+            <mat-icon>
+                remove
+            </mat-icon>
+        </div>
+    </button> {{getCategoryDisplayName(category)}}</h2>
+    <div *ngIf="getCategoryStatus(category)" class="image-viewport">
         <app-image-container class="image-container" *ngFor="let path of imageListByCategory[category]" [path_to_image]="path"></app-image-container>
     </div>
 </div>

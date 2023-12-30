@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ImageService } from '../image.service';
 
-export type CandleCategory = typeof CandleCategory[keyof typeof CandleCategory]
+export type CandleCategory = (typeof CandleCategory)[keyof typeof CandleCategory];
 
 export const CandleCategory = {
   baptism: 'baptism',
@@ -11,10 +11,10 @@ export const CandleCategory = {
   easter: 'easter',
   funeral: 'funeral',
   general: 'general',
-  marriage: 'marriage'
- }
+  marriage: 'marriage',
+};
 
- export const CandleCategoryNames: {[K in CandleCategory]: string}  = {
+export const CandleCategoryNames: { [K in CandleCategory]: string } = {
   [CandleCategory.baptism]: 'Taufkerzen',
   [CandleCategory.birthday]: 'Geburtstagskerzen',
   [CandleCategory.christmas]: 'Weihnachtskerzen',
@@ -22,8 +22,8 @@ export const CandleCategory = {
   [CandleCategory.easter]: 'Osterkerzen',
   [CandleCategory.funeral]: 'Trauerkerzen',
   [CandleCategory.general]: 'Verschiedene',
-  [CandleCategory.marriage]: 'Hochzeitskerzen'
- }
+  [CandleCategory.marriage]: 'Hochzeitskerzen',
+};
 
 @Component({
   selector: 'app-main-page',
@@ -32,23 +32,35 @@ export const CandleCategory = {
 })
 export class MainPageComponent implements OnInit {
   constructor(private imageService: ImageService) {}
-  imageListByCategory: Record<CandleCategory,string[]> = {};
+  imageListByCategory: Record<CandleCategory, string[]> = {};
+  imageListStatus: Record<CandleCategory, boolean> = {};
   categories: string[] = [];
   title = 'Lisas Kerzen';
 
   ngOnInit(): void {
     this.imageService.getCategories().subscribe((resp) => {
       this.categories = resp;
-      this.categories=this.categories.sort((a,b) => this.getCategoryDisplayName(a).localeCompare(this.getCategoryDisplayName(b)))
-      this.categories.forEach(category =>{
-        this.imageService.getImagePaths(category).subscribe(resp=>{
-          this.imageListByCategory[category]=resp
-        })
-      })
+      this.categories = this.categories.sort((a, b) =>
+        this.getCategoryDisplayName(a).localeCompare(this.getCategoryDisplayName(b)),
+      );
+      this.categories.forEach((category) => {
+        this.imageListStatus[category] = false;
+        this.imageService.getImagePaths(category).subscribe((resp) => {
+          this.imageListByCategory[category] = resp;
+        });
+      });
     });
   }
 
-  getCategoryDisplayName(category: string){
-    return CandleCategoryNames[category] ? CandleCategoryNames[category] : category
+  getCategoryDisplayName(category: string) {
+    return CandleCategoryNames[category] ? CandleCategoryNames[category] : category;
+  }
+
+  getCategoryStatus(category: string) {
+    return this.imageListStatus[category];
+  }
+
+  onButtonClick(category: string){
+    this.imageListStatus[category] = !this.imageListStatus[category]
   }
 }

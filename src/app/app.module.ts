@@ -11,6 +11,8 @@ import { MatCardModule } from '@angular/material/card';
 import { ImagePopUpComponent } from './main-page/image-container/image-pop-up/image-pop-up.component';
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [AppComponent, MainPageComponent, ImageContainerComponent, ImagePopUpComponent],
@@ -22,6 +24,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatCardModule,
     FormsModule,
     MatDialogModule,
+    MatIconModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
