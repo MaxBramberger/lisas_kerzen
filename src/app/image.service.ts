@@ -10,7 +10,11 @@ export class ImageService {
 
   constructor(private http: HttpClient) {}
 
-  getImagePaths(): Observable<string[]> {
-    return this.http.get<string[]>('files');
+  getImagePaths(category: string): Observable<string[]> {
+    return this.http.get<string[]>('api/images/' + category);
+  }
+
+  getCategories(): Observable<string[]> {
+    return this.http.get<string[]>('api/categories');
   }
 }
