@@ -20,7 +20,6 @@ app.get('/api/categories', (req, res) => {
 
 app.get('/api/images/:category', (req, res) => {
   const category = req.params.category
-  console.log('dist/assets/img/'+category)
   const directoryPath = path.join(__dirname, 'dist/assets/img/'+category); // Adjust the path accordingly
   fs.readdir(directoryPath, (err, files) => {
     if (err) {
