@@ -9,7 +9,7 @@
                 remove
             </mat-icon>
         </div>
-    </button> {{getCategoryDisplayName(category)}}</h2>
+    </button> <span (click)="onButtonClick(category)">{{getCategoryDisplayName(category)}}</span></h2>
     <div *ngIf="getCategoryStatus(category)" class="image-viewport">
         <app-image-container class="image-container" *ngFor="let path of imageListByCategory[category]" [path_to_image]="path"></app-image-container>
     </div>
