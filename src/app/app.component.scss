@@ -10,6 +10,7 @@
 .page-title{
     margin-left: 2vh;
     align-items: center;
+    font-family: 'Kaushan Script', cursive;
 }
 
 .app-container{
@@ -19,4 +20,22 @@
 .tabs{
     overflow: hidden;
     max-height: 90vh;
+}
+
+@media only screen and (max-width: 767px) {
+  ::ng-deep .mat-mdc-tab-header {
+    overflow-x: scroll !important;
+  }
+  
+  ::ng-deep   .mat-tab-header-pagination {
+    display: none !important;
+  }
+
+  ::ng-deep .mat-mdc-tab-label-container { 
+    overflow: visible !important;
+  }
+
+  ::ng-deep .mat-mdc-tab-header::-webkit-scrollbar {
+  display: none;
+  }
 }
