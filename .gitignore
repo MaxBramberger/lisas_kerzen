@@ -3,3 +3,4 @@
 *.vscode*
 *.editorconfig*
 *dist/*
+*src/assets/img/
