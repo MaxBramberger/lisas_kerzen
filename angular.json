@@ -31,11 +31,12 @@
                 "glob": "**/*",
                 "input": "src/assets",
                 "output": "/assets/",
+                "ignore": ["*img/.git*", "*img/.git"]
               }
             ],
             "styles": [
               "@angular/material/prebuilt-themes/deeppurple-amber.css",
-              "src/styles.scss",
+              "src/styles.scss"
             ],
             "scripts": []
           },
