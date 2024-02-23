@@ -6,7 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Execute `git clone https://github.com/MaxBramberger/candle_images.git src/assets/img` to get the image folder.
 Update the image folder by pulling the latest commit from the main branch within `src/assets/img`.
 
-## General Angular Dev Setup
+## General Angular Dev Commands
 
 ### Development server
 
