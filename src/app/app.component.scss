@@ -22,6 +22,10 @@
     max-height: 90vh;
 }
 
+.hidden{
+  display: none;
+}
+
 @media only screen and (max-width: 767px) {
   ::ng-deep .mat-mdc-tab-header {
     overflow-x: scroll !important;
