@@ -31,7 +31,10 @@
                 "glob": "**/*",
                 "input": "src/assets",
                 "output": "/assets/",
-                "ignore": ["*img/.git*", "*img/.git"]
+                "ignore": [
+                  "*img/.git*",
+                  "*img/.git"
+                ]
               }
             ],
             "styles": [
@@ -107,8 +110,22 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
+  },
+  "cli": {
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }

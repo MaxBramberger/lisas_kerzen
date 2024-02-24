@@ -1,7 +1,6 @@
-import { Component, OnInit, HostListener, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { ImageService } from './image.service';
 import { BehaviorSubject } from 'rxjs';
-
 
 export type CandleCategory = (typeof CandleCategory)[keyof typeof CandleCategory];
 
@@ -14,7 +13,7 @@ export const CandleCategory = {
   funeral: 'funeral',
   general: 'general',
   marriage: 'marriage',
-  confirmation: 'confirmation'
+  confirmation: 'confirmation',
 };
 
 export const CandleCategoryNames: { [K in CandleCategory]: string } = {
@@ -26,7 +25,7 @@ export const CandleCategoryNames: { [K in CandleCategory]: string } = {
   [CandleCategory.funeral]: 'Trauerkerzen',
   [CandleCategory.general]: 'Verschiedene',
   [CandleCategory.marriage]: 'Hochzeitskerzen',
-  [CandleCategory.confirmation]: 'Firmkerzen'
+  [CandleCategory.confirmation]: 'Firmkerzen',
 };
 
 @Component({
@@ -40,7 +39,7 @@ export class AppComponent implements OnInit {
   screenWidth!: number;
   screenHeight!: number;
 
-  images: string[] = []
+  images: string[] = [];
 
   @HostListener('window:resize', ['$event'])
   getScreenSize(_event?: Event) {
@@ -56,10 +55,10 @@ export class AppComponent implements OnInit {
   categories: string[] = [];
   category: string | undefined;
 
-  loading$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
+  loading$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   ngOnInit(): void {
-    this.loading$.next(true)
+    this.loading$.next(true);
     this.imageService.getCategories().subscribe((resp) => {
       this.categories = resp;
       this.category = this.categories[0];
@@ -70,21 +69,21 @@ export class AppComponent implements OnInit {
         this.imageListStatus[category] = false;
         this.imageService.getImagePaths(category).subscribe((resp) => {
           this.imageListByCategory[category] = resp;
-          this.images.push(...resp)
-          this.imageListStatus[category] = true
-          this.checkLoadingDone()
+          this.images.push(...resp);
+          this.imageListStatus[category] = true;
+          this.checkLoadingDone();
         });
       });
     });
   }
 
-  checkLoadingDone(){
+  checkLoadingDone() {
     let done = true;
-    this.categories.forEach(category => {
-      done = done && this.imageListStatus[category]
-    })
-    if(done){
-      this.loading$.next(false)
+    this.categories.forEach((category) => {
+      done = done && this.imageListStatus[category];
+    });
+    if (done) {
+      this.loading$.next(false);
     }
   }
 
@@ -107,8 +106,8 @@ export class AppComponent implements OnInit {
     }
   }
 
-  getTotalImageList(){
-    return this.images
+  getTotalImageList() {
+    return this.images;
   }
 
   onTabClick(category: string) {

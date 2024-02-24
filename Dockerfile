@@ -22,7 +22,7 @@ WORKDIR /usr/src/app
 # Copy only the necessary files from the build stage
 COPY --from=build /usr/src/app/dist ./dist
 COPY --from=build /usr/src/app/server.js ./
-COPY --from=build /usr/src/app/package.json ./
+COPY --from=build /usr/src/app/package.server.json ./package.json
 
 # Install only production dependencies
 RUN npm install --production

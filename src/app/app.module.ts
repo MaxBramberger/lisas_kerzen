@@ -12,8 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import {MatTabsModule} from '@angular/material/tabs';
-
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   declarations: [AppComponent, ImageContainerComponent, ImagePopUpComponent],
@@ -27,7 +26,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatDialogModule,
     MatIconModule,
     MatButtonModule,
-    MatTabsModule
+    MatTabsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

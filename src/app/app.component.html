@@ -1,10 +1,11 @@
 <div class="app-container">
-    <h1 class="page-title">{{title}}</h1>
-    <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start" class="tabs">
-            <mat-tab *ngFor="let categoryIter of categories" label={{getCategoryDisplayName(categoryIter)}}>
-                <div class="image-viewport" >
-                    <app-image-container class="image-container" *ngFor="let path of getImageListByCategory(categoryIter)" [path_to_image]="path"></app-image-container>
-                </div>
-            </mat-tab>
-</mat-tab-group>
+  <h1 class="page-title">{{ title }}</h1>
+  <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start" class="tabs">
+    <mat-tab *ngFor="let categoryIter of categories" label="{{ getCategoryDisplayName(categoryIter) }}">
+      <div class="image-viewport">
+        <app-image-container class="image-container" *ngFor="let path of getImageListByCategory(categoryIter)"
+          [path_to_image]="path"></app-image-container>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
 </div>
