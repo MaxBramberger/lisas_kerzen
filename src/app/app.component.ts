@@ -18,14 +18,14 @@ export const CandleCategory = {
 
 export const CandleCategoryNames: { [K in CandleCategory]: string } = {
   [CandleCategory.baptism]: 'Taufkerzen',
-  [CandleCategory.birthday]: 'Geburtstagskerzen',
-  [CandleCategory.christmas]: 'Weihnachtskerzen',
   [CandleCategory.communion]: 'Kommunionkerzen',
-  [CandleCategory.easter]: 'Osterkerzen',
-  [CandleCategory.funeral]: 'Trauerkerzen',
-  [CandleCategory.general]: 'Verschiedene',
+  [CandleCategory.birthday]: 'Geburtstagskerzen',
   [CandleCategory.marriage]: 'Hochzeitskerzen',
+  [CandleCategory.funeral]: 'Trauerkerzen',
   [CandleCategory.confirmation]: 'Firmkerzen',
+  [CandleCategory.easter]: 'Osterkerzen',
+  [CandleCategory.christmas]: 'Weihnachtskerzen',
+  [CandleCategory.general]: 'Verschiedene',
 };
 
 @Component({
@@ -59,20 +59,15 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.loading$.next(true);
-    this.imageService.getCategories().subscribe((resp) => {
-      this.categories = resp;
-      this.category = this.categories[0];
-      this.categories = this.categories.sort((a, b) =>
-        this.getCategoryDisplayName(a).localeCompare(this.getCategoryDisplayName(b)),
-      );
-      this.categories.forEach((category) => {
-        this.imageListStatus[category] = false;
-        this.imageService.getImagePaths(category).subscribe((resp) => {
-          this.imageListByCategory[category] = resp;
-          this.images.push(...resp);
-          this.imageListStatus[category] = true;
-          this.checkLoadingDone();
-        });
+    this.categories = Object.keys(CandleCategoryNames);
+    this.category = this.categories[0];
+    this.categories.forEach((category) => {
+      this.imageListStatus[category] = false;
+      this.imageService.getImagePaths(category).subscribe((resp) => {
+        this.imageListByCategory[category] = resp;
+        this.images.push(...resp);
+        this.imageListStatus[category] = true;
+        this.checkLoadingDone();
       });
     });
   }
