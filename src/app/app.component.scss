@@ -1,28 +1,34 @@
-.image-viewport{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    margin-left: 2vh;
-    margin-top: 16px;
-    overflow: auto
+@use "../theme.scss" as mat;
+
+$primary-color: map-get(mat.$candle-app-primary, 200);
+
+.image-viewport {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-left: 2vh;
+  margin-top: 16px;
+  overflow: auto
 }
 
-.page-title{
-    margin-left: 2vh;
-    align-items: center;
-    font-family: 'Kaushan Script', cursive;
+.page-title {
+  font-size: 50px;
+  color: $primary-color;
+  margin-left: 2vh;
+  align-items: center;
+  font-family: 'Kaushan Script', cursive;
 }
 
-.app-container{
-    max-height: 90vh;
+.app-container {
+  max-height: 90vh;
 }
 
-.tabs{
-    overflow: hidden;
-    max-height: 90vh;
+.tabs {
+  overflow: hidden;
+  max-height: 84vh;
 }
 
-.hidden{
+.hidden {
   display: none;
 }
 
@@ -30,16 +36,16 @@
   ::ng-deep .mat-mdc-tab-header {
     overflow-x: scroll !important;
   }
-  
-  ::ng-deep   .mat-tab-header-pagination {
+
+  ::ng-deep .mat-tab-header-pagination {
     display: none !important;
   }
 
-  ::ng-deep .mat-mdc-tab-label-container { 
+  ::ng-deep .mat-mdc-tab-label-container {
     overflow: visible !important;
   }
 
   ::ng-deep .mat-mdc-tab-header::-webkit-scrollbar {
-  display: none;
+    display: none;
   }
 }
