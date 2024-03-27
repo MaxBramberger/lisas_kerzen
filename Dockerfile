@@ -14,6 +14,9 @@ COPY . .
 # Build the Angular app
 RUN npm run build
 
+# downscale the images
+RUN node ./downscale_img.js
+
 # Stage 2: Create a lighter production image
 FROM node:alpine
 

@@ -4,3 +4,4 @@
 *.editorconfig*
 *dist/*
 *src/assets/img/
+*tmp/
