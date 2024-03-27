@@ -29,6 +29,7 @@ function processImagesInFolder(folderPath) {
                     const outputPath = path.join(outputFolder, path.relative(inputFolder, folderPath));
                     fs.mkdirSync(outputPath, { recursive: true });
                     sharp(filePath)
+                        .withMetadata()
                         .resize({ width: targetWidth })
                         .toFile(path.join(outputPath, file), (err, info) => {
                             if (err) {
