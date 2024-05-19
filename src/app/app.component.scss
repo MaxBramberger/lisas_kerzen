@@ -27,7 +27,6 @@ $primary-color: map-get(mat.$candle-app-primary, 200);
 
 .tabs {
   overflow: hidden;
-  max-height: 76vh;
 }
 
 .hidden {
@@ -60,12 +59,16 @@ $primary-color: map-get(mat.$candle-app-primary, 200);
 
 .page-content {
   flex: 1 1 90%;
-    display: flex;
-    overflow: hidden;
-    flex-direction: column;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
 }
 
 .banner-text {
   margin-top: 8px;
   margin-bottom: 8px
+}
+
+.banner-href{
+  font-weight: bold;
 }
