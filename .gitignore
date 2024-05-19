@@ -2,6 +2,5 @@
 *.angular*
 *.vscode*
 *.editorconfig*
-*dist/*
 *src/assets/img/
 *tmp/
