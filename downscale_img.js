@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const sharp = require('sharp');
 
-const inputFolder = 'dist/assets/img';
+const inputFolder = 'docs/assets/img';
 const outputFolder = 'tmp';
 const targetWidth = 800; // Adjust this according to your needs
 
