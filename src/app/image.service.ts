@@ -2,6 +2,18 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
+export interface PathByCategory {
+  baptism: string[];
+  birthday: string[];
+  christmas: string[];
+  communion: string[];
+  easter: string[];
+  funeral: string[];
+  general: string[];
+  marriage: string[];
+  confirmation: string[];
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -16,5 +28,9 @@ export class ImageService {
 
   getCategories(): Observable<string[]> {
     return this.http.get<string[]>('api/categories');
+  }
+
+  getPaths(): Observable<PathByCategory> {
+    return this.http.get<PathByCategory>('assets/paths.json');
   }
 }
