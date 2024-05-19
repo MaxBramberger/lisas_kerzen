@@ -34,7 +34,7 @@ function writeSubdirectoriesAndFiles(targetPath, prefix = '') {
 
     const jsonData = JSON.stringify(data, null, 2);
     fs.writeFileSync(`${prefix}paths.json`, jsonData);
-    console.log(`Data written to ${prefix}subdirectories_and_files.json`);
+    console.log(`Data written to ${prefix}paths.json`);
 }
 
 // Example usage

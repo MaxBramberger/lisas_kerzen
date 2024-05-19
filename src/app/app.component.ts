@@ -62,9 +62,9 @@ export class AppComponent implements OnInit {
     this.categories = Object.keys(CandleCategoryNames);
     this.category = this.categories[0];
 
-    this.imageService.getPaths().subscribe(resp => {
+    this.imageService.getPaths().subscribe((resp) => {
       this.getPathsFromResponse(resp);
-    })
+    });
 
     // this.categories.forEach((category) => {
     //   this.imageListStatus[category] = false;
@@ -112,15 +112,33 @@ export class AppComponent implements OnInit {
   }
 
   getPathsFromResponse(resp: PathByCategory) {
-    this.imageListByCategory[CandleCategory.baptism] = resp.baptism.map(value => `assets/img/${CandleCategory.baptism}/${value}`);
-    this.imageListByCategory[CandleCategory.communion] = resp.communion.map(value => `assets/img/${CandleCategory.communion}/${value}`);
-    this.imageListByCategory[CandleCategory.birthday] = resp.birthday.map(value => `assets/img/${CandleCategory.birthday}/${value}`);
-    this.imageListByCategory[CandleCategory.marriage] = resp.marriage.map(value => `assets/img/${CandleCategory.marriage}/${value}`);
-    this.imageListByCategory[CandleCategory.funeral] = resp.funeral.map(value => `assets/img/${CandleCategory.funeral}/${value}`);
-    this.imageListByCategory[CandleCategory.confirmation] = resp.confirmation.map(value => `assets/img/${CandleCategory.confirmation}/${value}`);
-    this.imageListByCategory[CandleCategory.easter] = resp.easter.map(value => `assets/img/${CandleCategory.easter}/${value}`);
-    this.imageListByCategory[CandleCategory.christmas] = resp.christmas.map(value => `assets/img/${CandleCategory.christmas}/${value}`);
-    this.imageListByCategory[CandleCategory.general] = resp.general.map(value => `assets/img/${CandleCategory.general}/${value}`);
+    this.imageListByCategory[CandleCategory.baptism] = resp.baptism.map(
+      (value) => `assets/img/${CandleCategory.baptism}/${value}`,
+    );
+    this.imageListByCategory[CandleCategory.communion] = resp.communion.map(
+      (value) => `assets/img/${CandleCategory.communion}/${value}`,
+    );
+    this.imageListByCategory[CandleCategory.birthday] = resp.birthday.map(
+      (value) => `assets/img/${CandleCategory.birthday}/${value}`,
+    );
+    this.imageListByCategory[CandleCategory.marriage] = resp.marriage.map(
+      (value) => `assets/img/${CandleCategory.marriage}/${value}`,
+    );
+    this.imageListByCategory[CandleCategory.funeral] = resp.funeral.map(
+      (value) => `assets/img/${CandleCategory.funeral}/${value}`,
+    );
+    this.imageListByCategory[CandleCategory.confirmation] = resp.confirmation.map(
+      (value) => `assets/img/${CandleCategory.confirmation}/${value}`,
+    );
+    this.imageListByCategory[CandleCategory.easter] = resp.easter.map(
+      (value) => `assets/img/${CandleCategory.easter}/${value}`,
+    );
+    this.imageListByCategory[CandleCategory.christmas] = resp.christmas.map(
+      (value) => `assets/img/${CandleCategory.christmas}/${value}`,
+    );
+    this.imageListByCategory[CandleCategory.general] = resp.general.map(
+      (value) => `assets/img/${CandleCategory.general}/${value}`,
+    );
   }
 
   onTabClick(category: string) {

@@ -3,15 +3,15 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 export interface PathByCategory {
-  baptism: string[],
-  birthday: string[],
-  christmas: string[],
-  communion: string[],
-  easter: string[],
-  funeral: string[],
-  general: string[],
-  marriage: string[],
-  confirmation: string[]
+  baptism: string[];
+  birthday: string[];
+  christmas: string[];
+  communion: string[];
+  easter: string[];
+  funeral: string[];
+  general: string[];
+  marriage: string[];
+  confirmation: string[];
 }
 
 @Injectable({
@@ -20,7 +20,7 @@ export interface PathByCategory {
 export class ImageService {
   pathsObservable: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getImagePaths(category: string): Observable<string[]> {
     return this.http.get<string[]>('api/images/' + category);
@@ -31,6 +31,6 @@ export class ImageService {
   }
 
   getPaths(): Observable<PathByCategory> {
-    return this.http.get<PathByCategory>('assets/paths.json')
+    return this.http.get<PathByCategory>('assets/paths.json');
   }
 }
