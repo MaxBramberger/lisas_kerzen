@@ -14,18 +14,20 @@ $primary-color: map-get(mat.$candle-app-primary, 200);
 .page-title {
   font-size: 50px;
   color: $primary-color;
-  margin-left: 2vh;
+  margin-left: 2vw;
   align-items: center;
   font-family: 'Kaushan Script', cursive;
 }
 
 .app-container {
-  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  max-height: 100vh
 }
 
 .tabs {
   overflow: hidden;
-  max-height: 84vh;
+  max-height: 76vh;
 }
 
 .hidden {
@@ -48,4 +50,22 @@ $primary-color: map-get(mat.$candle-app-primary, 200);
   ::ng-deep .mat-mdc-tab-header::-webkit-scrollbar {
     display: none;
   }
+}
+
+.top-banner {
+  height: auto;
+  width: 100%;
+  text-wrap: wrap;
+}
+
+.page-content {
+  flex: 1 1 90%;
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+}
+
+.banner-text {
+  margin-top: 8px;
+  margin-bottom: 8px
 }
