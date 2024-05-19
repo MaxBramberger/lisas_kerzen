@@ -26,6 +26,7 @@ async function runCommands() {
         await executeCommand('node subpaths.js');
         await executeCommand('ng build');
         await executeCommand('node downscale_img.js');
+        await executeCommand('node replace_base_href.js docs/index.html');
         console.log('All commands executed successfully.');
     } catch (error) {
         console.error('An error occurred during command execution:', error);
